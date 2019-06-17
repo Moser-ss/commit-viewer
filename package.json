@@ -1,0 +1,14 @@
+{
+  "name": "commit-viewer",
+  "version": "0.1.0",
+  "description": "Service to retrive and parse git commits  ",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "author": "moser-ss",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "5.16.0"
+  }
+}
