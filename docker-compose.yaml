@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  server:
+    build: .
+    container_name: "server"
+    depends_on:
+      - mongodb
+    volumes:
+      - ./:/app
+    ports:
+     - "3000:3000"
+     - "9090:9090"
+    environment:
+      - MONGO_PASS_FILE=/run/secrets/mongo-cred 
+    secrets:
+      - mongo-cred
+  mongodb:
+    image: mongo:4.0
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=mongoAdmin
+    - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-pass
+    ports:
+     - "27017:27017"
+    secrets:
+      - source: mongo-cred
+        target: mongo-pass
+    volumes:
+      - mongo-data:/data/db
+
+configs:
+  CommitViewer-config:
+    file: ./dev/config.json
+secrets:
+  mongo-cred:
+    file: ./dev/secret_data
+volumes:
+  mongo-data:

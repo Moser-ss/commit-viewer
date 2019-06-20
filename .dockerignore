@@ -1,0 +1,7 @@
+.gitignore
+mongo-data/
+Readme.md
+docker-compose.yaml
+node_modules/
+.vscode/
+dev/mongo-data/
