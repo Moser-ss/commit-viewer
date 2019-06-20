@@ -4,6 +4,21 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        {
+			"type": "node",
+			"request": "attach",
+			"name": "Debug service container",
+			"address": "0.0.0.0",
+			"port": 9090,
+			"localRoot": "${workspaceRoot}",
+			"remoteRoot": "/app",
+			"protocol": "inspector",
+			"restart": true,
+			"sourceMaps": true,
+			"timeout": 30000
+        },
+        
         {
             "type": "node",
             "request": "launch",
