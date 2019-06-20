@@ -1,0 +1,9 @@
+{
+    "PORT": 3000,
+    "MONGO": {
+        "HOST": "mongodb",
+        "PORT": 27017,
+        "DB": "CommitViewer",
+        "USER": "mongoAdmin"
+    }
+}
