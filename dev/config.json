@@ -5,5 +5,6 @@
         "PORT": 27017,
         "DB": "CommitViewer",
         "USER": "mongoAdmin"
-    }
+    },
+    "REPO_STORAGE": "/tmp/repos"
 }
