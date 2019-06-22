@@ -16,7 +16,9 @@ async function connectToDB() {
             encoding: 'utf-8'
         });
         const mongoURI = `mongodb://${mongoUser}:${mongoPass}@${mongoHost}:${mongoPort}/${mongoDB}?authSource=admin`;
-        await  mongoose.connect(mongoURI, { useNewUrlParser: true });
+        await  mongoose.connect(mongoURI, { useNewUrlParser: true ,
+            useFindAndModify: false
+        });
         console.log(`Connection opened to DB ${mongoHost}`);
     } catch (error) {
         console.error(`Failed to connect to DB ${mongoHost} with error: ${error}`);
