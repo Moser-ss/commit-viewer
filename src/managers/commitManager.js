@@ -1,6 +1,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 const { Commit } = require('../db/models/commit');
+const { Task } = require('../db/models/task');
 const gitClient = require('../clients/git');
 const {REPO_STORAGE} = require('../config/config');
 
@@ -13,16 +14,34 @@ const getCommits = async function (projectName) {
             await saveCommits(commits,projectName);
             return commits;
         } else {
-            await gitClient.clone(REPO_STORAGE, projectName);
-            //Should return a task
-            const commits = await gitClient.getCommits(REPO_STORAGE, projectName);
-            return commits;
+            const taskID = await generateTask(projectName);
+            fetchProject(projectName,taskID)
+                .then(async(taskID) => {
+                    await Task.findByIdAndUpdate(taskID,{status: 'COMPLETED'});
+                });
+
+            return taskID;
         }
     } catch (error) {
         console.error(`Fail to get commits from ${projectName}`);
         throw new Error(`Fail to get commits from ${projectName}`);
     }
 
+};
+const generateTask = async function (projectName) {
+    const task = new Task({
+        project: projectName
+    });
+    const doc = await task.save();
+
+    return doc._id;
+};
+
+const fetchProject = async function (projectName,taskID) {
+    await gitClient.clone(REPO_STORAGE, projectName);
+    const commits = await gitClient.getCommits(REPO_STORAGE, projectName);
+    await saveCommits(commits,projectName);
+    return taskID;
 };
 
 const saveCommits = async function(commits,projectName) {
