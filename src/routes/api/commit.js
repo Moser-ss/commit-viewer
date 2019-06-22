@@ -9,12 +9,26 @@ const getCommits = async function (req, res) {
             message: 'Missing parameters'
         });
     }
-    const commits = await commitManager.getCommits(`${org}/${repo}`);
-    res.status(200).send({
-        ok:true,
-        message: `Commits for project ${org}/${repo} retrieved with success`,
-        commits
-    });
+    try {
+        let commits = [];
+        const { forcerefresh } = req.query;
+        if (_.isUndefined(forcerefresh) || forcerefresh != 'true') {
+            commits  = await commitManager.getCommitsFromDB(`${org}/${repo}`);
+        } else {
+            commits = await commitManager.getCommits(`${org}/${repo}`);
+        }
+        res.status(200).send({
+            ok:true,
+            message: `Commits for project ${org}/${repo} retrieved with success`,
+            commits
+        });
+    } catch (error) {
+        res.status(500).send({
+            ok:false,
+            message: error.message
+        });
+    }
+
 };
 
 module.exports = {
