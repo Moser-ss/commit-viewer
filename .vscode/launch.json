@@ -10,7 +10,7 @@
 			"request": "attach",
 			"name": "Debug service container",
 			"address": "0.0.0.0",
-			"port": 9090,
+			"port": 3030,
 			"localRoot": "${workspaceRoot}",
 			"remoteRoot": "/app",
 			"protocol": "inspector",
