@@ -1,3 +1,7 @@
+require('elastic-apm-node').start({
+    serverUrl: ' http://apm-server:8200'
+  });
+  
 require('log-timestamp');
 const promBundle = require("express-prom-bundle");
 const express = require('express');
