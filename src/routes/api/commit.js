@@ -32,11 +32,6 @@ const getCommits = async function (req, res) {
             if(_.isString(commits)){
                 payload.message = `Fetching commits a task was created`;
                 payload.taskID = commits;
-            } else {
-                res.status(500).send({
-                    ok:false,
-                    message: `An unexpected error happens`,
-                });
             }
             res.status(200).send({
                 ok:true,
