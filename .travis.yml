@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "10"
+addons:
+  sonarcloud:
+    organization: "moser-ss-github"
+    token:
+        secure: "0m1k74sebB7zizW6zxyOqB7wi/eWAyXmR5iSohVG6XTKG5hjlbDIEo9OA8JHn0AoyRow8kv96vjZkrjYGey2o93+WXWbZQKpyahslg9KK0VUwqp5CEcSe2aY6b6Jd3e4iNsXpRxea2HwQWREU6jntZBBGEQEArYarpmj8fZKpYo80GPdnPNtFhJAb18Bev8u9QD4B5jF7aWPZVCzxtJ1BXuiNKKjAefz+wvi+HqXz02jauzI3X+gJH7upYfrV8IBJ7FBJx7DvriUz9ryWt8SrXxvhz5vefoWZT+blwNJ6t8DgSA/VbDp8PguPpWKZHRvlG84Wp7m6AECli6VxEt8DBzVq4pIoH5SYszXf3lKIaU89BrT82KXs2879AABcYmDJbWr8H0LbBrCtofYGsgtdZ3Zy9uQBCzO0w/bWejYQ1M43R7sJwydk58b549VfW/K5jfyVbuiw2dESxuWdAAcjRxl4U2XceN0US1tAtecE0FzmJD3WRrckFpqzM9x3c1fGL/Fbr0QYhw8s7EpxPfgKmFW9wZKxjUWqLzzB53RP4pYBDv4KvuBLm/EuagK/rJhzivpb2h9HngtvmOSAwQWKizRJHJAEfhqZIfKkt5RYuL/Pt0edAAfROUKJzpc3/T8YdcUXKQ90ID1rUw5JTTBzLPFotmGKfDS4BtkeDmofoY="
+script:
+  - npm build
+  - npm run test
+  - sonar-scanner
