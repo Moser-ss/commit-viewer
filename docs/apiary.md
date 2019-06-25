@@ -183,3 +183,98 @@ Get the list of commits from a project
     console.log('Response:', body);
     });
     ```
+
+***Get Task***
+----
+Get the task that is fetching the commits from a project
+
+* **URL**
+
+  /task/:id
+
+* **Method:**
+  
+    `GET`
+  
+*  **URL Params**
+   **Required:**
+ 
+   `id=[string]`
+
+   task ID
+
+* **Data Params**
+    
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    ```json 
+    {
+        "ok" : true,
+        "message" : "Task with ID foo99bar founded",
+        "task" : {
+            "project" : "foo/bar",
+            "status" : "COMPLETED"
+        }
+    }
+    ```
+    Status can be `COMPLETED` or `PENDING`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json 
+    { 
+        "ok" : false,
+        "message" :  "Missing parameters"
+    } 
+    ```
+    OR
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json 
+    { 
+        "ok" : false,
+        "message" :  "ID is not valid"
+    } 
+    ```
+
+    OR
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json 
+    { 
+        "ok" : false,
+        "message" :  "Task with ID foo88bar not found"
+    } 
+    ```
+
+    OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** 
+    ```json 
+    { 
+        "ok" : false,
+        "message" : "Error message"
+    }
+    ``` 
+
+* **Sample Call:**
+    ```javascript
+    const request = require('request');
+
+    request({
+    method: 'GET',
+    url: '/task/foo99bar'
+    }, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Response:', body);
+    });
+    ```
