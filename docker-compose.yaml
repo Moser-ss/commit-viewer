@@ -36,3 +36,4 @@ secrets:
     file: ./dev/secret_data
 volumes:
   mongo-data:
+  repo-storage:
