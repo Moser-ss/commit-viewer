@@ -7,7 +7,7 @@ services:
       - mongodb
     volumes:
       - ./:/app
-      - ./dev-repo/:/tmp/repos
+      - repo-storage/:/tmp/repos
     ports:
      - "3000:3000"
      - "3030:3030"

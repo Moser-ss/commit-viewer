@@ -1,7 +1,7 @@
 const util = require('util');
 const fs = require('fs');
 const exec = util.promisify(require('child_process').exec);
-const REPO_STORAGE = '/tmp/repos';
+const { REPO_STORAGE } = require('../config/config');
 const _ = require('lodash');
 
 const sendLog = (output) => {
