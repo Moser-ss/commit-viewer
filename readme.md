@@ -43,3 +43,17 @@ All logging will not be present in the terminal, to see the logs remove the flag
 ## Architecture  diagram
 ![](docs/arch_diagram.png)
 ## Alerts
+
+* How to avoid useless metrics (is this a thing)?
+  
+    A metric is only useless when cannot retrieve any information for itself or in combination with other metrics or with a context. So to determine the value of a metric we should try to understand the relation of that metric with the objects we propose for our application /system. So after that exercise, we can assert wich metrics don't give value and avoid to collect them.
+
+* How to avoid alarm flooding?
+  
+    Before we create an alarm we need to think about 2 things.
+    First the priority of that alarm. Like how critical is the issue the alarm is reporting for correct behavior of our application). With that prioritization adjust the notification system to notify when it is important. 
+    Second, make sure the alarm report an issue that should be resolved at the moment we received and that resolution could not be handled by any automatization.
+
+* We have a lot of metrics but no monitoring?
+  
+    The metrics are the raw data about the system if we don't have any platform or abstraction layer that helps us to give meaning about that data and help us to create a context we lose the reason to collect those metrics.
