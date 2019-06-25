@@ -39,8 +39,7 @@ All logging will not be present in the terminal, to see the logs remove the flag
 
 [APIARY](docs/apiary.md)
 
-### Development 
 
 ## Architecture  diagram
-
+![](docs/arch_diagram.png)
 ## Alerts
