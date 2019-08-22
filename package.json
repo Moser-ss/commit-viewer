@@ -21,7 +21,7 @@
     "lodash": "^4.17.12",
     "log-timestamp": "^0.3.0",
     "mongoose": "^5.6.0",
-    "prom-client": "^11.5.2",
+    "prom-client": "^11.5.3",
     "snyk": "^1.217.3"
   },
   "snyk": true
