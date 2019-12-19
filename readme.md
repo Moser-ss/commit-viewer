@@ -19,7 +19,7 @@ All logging will not be present in the terminal, to see the logs remove the flag
 Monitor is handle by an instance of ***Prometheus***
 To start Prometheus execute the following command
 ```shel
-docker-compose -c docker-compose.prom.yaml up -d
+docker-compose -f docker-compose.prom.yaml up -d
 ```
 
 The ***Prometheus*** it will start at port ```9090``` using the file in ``` ./monitor/prometheus.yml``` as source of configuration
@@ -29,7 +29,7 @@ All logging will not be present in the terminal, to see the logs remove the flag
 APM is handle by an ***Elastic Stack***
 To start ELK stack execute the following command
 ```shel
-docker-compose -c docker-compose.eak.yaml up -d
+docker-compose -f docker-compose.eak.yaml up -d
 ```
 
 The ***Elastic Stack*** it will start and the ***Kibana*** interface it will be accesible at port ```9090```
