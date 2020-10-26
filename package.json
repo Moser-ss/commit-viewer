@@ -22,7 +22,7 @@
     "log-timestamp": "0.3.0",
     "mongoose": "5.10.7",
     "prom-client": "11.5.3",
-    "snyk": "^1.402.0"
+    "snyk": "^1.409.1"
   },
   "snyk": true
 }
