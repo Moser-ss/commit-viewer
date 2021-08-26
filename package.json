@@ -20,7 +20,7 @@
     "express-prom-bundle": "5.1.5",
     "lodash": "4.17.21",
     "log-timestamp": "0.3.0",
-    "mongoose": "5.12.3",
+    "mongoose": "5.13.5",
     "prom-client": "11.5.3",
     "snyk": "^1.667.0"
   },
