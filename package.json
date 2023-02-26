@@ -4,9 +4,7 @@
   "description": "Service to retrive and parse git commits  ",
   "main": "src/app.js",
   "scripts": {
-    "test": "exit 0",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "test": "exit 0"
   },
   "author": "moser-ss",
   "license": "ISC",
@@ -15,14 +13,12 @@
     "nodemon": "2.0.3"
   },
   "dependencies": {
-    "elastic-apm-node": "2.17.3",
+    "elastic-apm-node": "3.42.0",
     "express": "4.17.2",
     "express-prom-bundle": "5.1.5",
     "lodash": "4.17.21",
     "log-timestamp": "0.3.0",
     "mongoose": "6.0.14",
-    "prom-client": "11.5.3",
-    "snyk": "^1.685.0"
-  },
-  "snyk": true
+    "prom-client": "11.5.3"
+  }
 }

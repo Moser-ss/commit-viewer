@@ -13,34 +13,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
+        node-version-file: .nvmrc
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
     - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.4
+      uses: SonarSource/sonarcloud-github-action@v1.8
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         
-  merge-me:
-    name: Merge me!
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Merge me!
-        uses: ridedott/merge-me-action@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_LOGIN: snyk-bot
